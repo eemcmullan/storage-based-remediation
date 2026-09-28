@@ -187,7 +187,7 @@ if [ "${SKIP_BUILD}" = false ]; then
     make bundle bundle-build bundle-push
 
     step "Deploying SBR via OLM bundle"
-    operator-sdk cleanup storage-based-remediation -n "${OPERATOR_NAMESPACE}" --timeout 2m 2>/dev/null || true
+    operator-sdk cleanup medik8s-storage-based-remediation -n "${OPERATOR_NAMESPACE}" --timeout 2m 2>/dev/null || true
     operator-sdk run bundle -n "${OPERATOR_NAMESPACE}" --use-http \
         --timeout 5m \
         "${SBR_BUNDLE}"
